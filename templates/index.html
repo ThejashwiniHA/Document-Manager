@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Manager</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <h2>DocuManager</h2>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Upload</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header>
+        <h1>Manage Your Documents Efficiently</h1>
+        <p>Upload, organize, and access your documents anytime, anywhere.</p>
+    </header>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step">Step 1: Upload your documents securely.</div>
+            <div class="step">Step 2: Organize and manage documents.</div>
+            <div class="step">Step 3: Access them anytime, anywhere.</div>
+        </div>
+    </section>
+
+    <!-- File Upload Section -->
+    <section class="upload-section">
+        <h2>Upload Your Document</h2>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <input type="file" name="document">
+            <button type="submit">Upload</button>
+        </form>
+    </section>
+
+    <!-- Uploaded Documents -->
+    <section class="documents">
+        <h2>Your Documents</h2>
+        <ul>
+            {% for file in files %}
+                <li>{{ file }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <!-- Contact Us -->
+    <section class="contact">
+        <h2>Contact Us</h2>
+        <p>Email: support@documanager.com</p>
+        <p>Phone: +123 456 7890</p>
+        <form>
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Your Email">
+            <textarea placeholder="Your Message"></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+</body>
+</html>
